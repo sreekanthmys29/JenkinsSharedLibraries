@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                       echo " checkout code "
-                       gitclone('master', 'jenkinsGit', 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git')
+                      git branch: 'master', credentialsId: 'jenkinsGit', url: 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git'
                 
                 }
             }
