@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     echo " GIt Chechout stage"
-                       gitcheckout('master', 'jenkinsGit', 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git')
+                       gitclone('master', 'jenkinsGit', 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git')
                 
                 }
             }
