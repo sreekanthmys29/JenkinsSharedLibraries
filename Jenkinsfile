@@ -24,7 +24,15 @@ pipeline {
 
                 }
             }
-        }
+        } //maven build
+
+        stage('sonarscanner') {
+            steps {
+                    //calling builit in function (call) in sonar.groovy file 
+                    sonar()
+                
+            }
+        } //sonar build
     }
 }
 
