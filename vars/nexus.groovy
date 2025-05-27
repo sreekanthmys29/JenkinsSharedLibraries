@@ -10,10 +10,11 @@ def call() {
     
         //If not Plugin , You can parse the pom.xml manually in Groovy
         def pomXml = readFile('pom.xml')
+        // new XmlSlurper().parseText(pomXml) parses the XML text into a Groovy XML object.
         def pom = new XmlSlurper().parseText(pomXml)
         echo "GroupId: ${pom.groupId.text()}"
         echo "ArtifactId: ${pom.artifactId.text()}"
+        echo "Packaging: ${pom.packaging.text()}"
         echo "Version: ${pom.version.text()}"
-
     
 }
