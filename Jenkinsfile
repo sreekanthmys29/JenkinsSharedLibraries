@@ -8,10 +8,10 @@ pipeline {
     stages {
         stage('checkout code') {
             steps {
-              
+               script {
                     echo " GIt Chechout stage"
                     git();
-                
+            }
             }
         }
         stage('maven build') {
@@ -30,16 +30,16 @@ pipeline {
         }
         stage('nexus deployment') {
             steps {
-              
+                  script {
                     nexus()
-                
+                  }
             }
         }
         stage('tomcat web') {
             steps {
-               
-                    tomcat()
-                
+                   script {
+                     tomcat()
+                   }
             }
         }
     }//stages
