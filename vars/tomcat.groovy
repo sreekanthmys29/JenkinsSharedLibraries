@@ -1,14 +1,15 @@
 def call(){
        echo "Workspace: ${env.WORKSPACE}"
        echo "Job Name: ${env.JOB_NAME}"
+
+       def WAR_FILE=$(find target -name "*.war" | head -n 1)
+       echo "WAR_FILE : ${${env.JOB_NAME}}"
   
       withCredentials([usernamePassword(credentialsId: 'tomcat', passwordVariable: 'password', usernameVariable: 'username')]) {
 
        // Upload the WAR file to the remote server (e.g., Tomcat manager) 
         // --upload-file target/spring3-mvc-maven-xml-hello-world.war  or -T  target/spring3-mvc-maven-xml-hello-world.war
     sh """
-     WAR_FILE=$(find target -name "*.war" | head -n 1)
-       echo "WAR_FILE : ${${env.JOB_NAME}}"
        
         curl -v --upload-file "$WAR_FILE" \
           -u admin:${TOMCAT_PASSWORD} \
