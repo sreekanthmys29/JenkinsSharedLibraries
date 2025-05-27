@@ -1,4 +1,4 @@
-@Library('sharedLib') _
+//@Library('sharedLib') _
 
 pipeline {
     agent any
@@ -9,40 +9,17 @@ pipeline {
     stages {
         stage('checkout code') {
             steps {
-                script{
-                      sh "git branch: 'master', credentialsId: 'jenkinsGit', url: 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git'"
-                }
-                      
+               git branch: 'master', credentialsId: 'jenkinsGit', url: 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git'
                 
             }
         }
         stage('maven build') {
             steps {
                 script {
-                    maven("package")
+                   sh 'mvn clean package'
                 }
             }
         }
-        stage('sonarscanner') {
-            steps {
-                script {
-                    sonar()
-                }
-            }
-        }
-        stage('nexus deployment') {
-            steps {
-                script {
-                    nexus()
-                }
-            }
-        }
-        stage('tomcat web') {
-            steps {
-                script {
-                    tomcat()
-                }
-            }
-        }
+      
     }//stages
 }       //pipeline
