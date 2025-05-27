@@ -1,10 +1,12 @@
-def call(){
+def call() {
+    echo " Nexus Deployment Starting..."
 
-     echo "Nexus deployment"
+    // Read and parse pom.xml
+    def pom = readMavenPom file: 'pom.xml'
 
-def pom = readMavenPom file: 'pom.xml'
-
-echo "Parsed POM - GroupId: ${pom.groupId}, ArtifactId: ${pom.artifactId}, Version: ${pom.version}"
-
-
+    echo "✅ Parsed POM:"
+    echo " - GroupId: ${pom.groupId}"
+    echo " - ArtifactId: ${pom.artifactId}"
+    echo " - Version: ${pom.version}"
+    echo " - Packaging: ${pom.packaging}"
 }
