@@ -1,7 +1,8 @@
+// Avoid re-calling the same `call` unintentionally
 def call(Map params = [:]) {
-    def branch = params.get('branch', 'master')
-    def url = params.get('url', '')
-    def credentialsId = params.get('credentialsId', '')
+    checkoutFromGit(params)
+}
 
-    git branch: branch, credentialsId: credentialsId, url: url
+def checkoutFromGit(Map params) {
+    git branch: params.branch, credentialsId: params.credentialsId, url: params.url
 }
