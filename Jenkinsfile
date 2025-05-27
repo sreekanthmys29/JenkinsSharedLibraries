@@ -19,7 +19,10 @@ agent any
         }
       stage('maven build'){
                  steps{
-                      stages('Build')
+                   script{
+                      build.buildcall("Clean")
+                   }
+                     
                  }
         }
   }//stages
