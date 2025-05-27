@@ -4,5 +4,5 @@ def call( branch ,  credentialsId,  url) {
      echo "credentialsId -----${credentialsId}"
      echo "url -----${url}"
      echo "git clone"
-     git branch: ${branch}, credentialsId: ${credentialsId}, url: ${url}
+     git branch: "${branch}", credentialsId: "${credentialsId}", url: "${url}"
  }
