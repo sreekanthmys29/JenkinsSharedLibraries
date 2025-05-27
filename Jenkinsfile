@@ -18,9 +18,11 @@ pipeline {
         } //stage Checkout
          stage('maven build') {
             steps {
-               
-                    build("package")
-             
+                script{
+                               // instead of  build("package")   we are calling custom function buildcall  showuld define inside script
+                                build.buildcall("package")
+
+                }
             }
         }
     }
