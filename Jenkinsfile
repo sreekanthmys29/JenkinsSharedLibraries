@@ -3,7 +3,8 @@
 pipeline {
     agent any
     tools {
-        maven 'mavenLocal'
+       git 'DefaultGit'
+       maven 'mavenLocal'
     }
     stages {
         stage('checkout code') {
