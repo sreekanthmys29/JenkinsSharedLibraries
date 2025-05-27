@@ -12,7 +12,7 @@ agent any
         stage('checkout code'){
                  steps{
                      script{
-                        git 'https://github.com/devopswithcloud/spring3-mvc-maven-xml-hello-world.git'
+                       git();
                      }
                  }
 
@@ -20,15 +20,41 @@ agent any
       stage('maven build'){
                  steps{
                    script{
-                      build.buildcall("Clean")
+                      maven("package")
                    }
                      
                  }
         }
+
+     stage('sonarscanner'){
+                 steps{
+                   script{
+                      sonar()
+                   }
+                     
+                 }
+        }
+
+  stage('nexus deployment'){
+                 steps{
+                   script{
+                      nexus()
+                   }
+                     
+                 }
+        }
+
+
+ stage('tomcat web'){
+                 steps{
+                   script{
+                      tomcat()
+                   }
+                     
+                 }
+        }
+    
   }//stages
-
-
-
 
 }       //pipeline
 
