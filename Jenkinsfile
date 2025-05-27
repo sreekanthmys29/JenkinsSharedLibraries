@@ -7,13 +7,20 @@ pipeline {
         maven 'mavenLocal'
     }
     stages {
-        stage('Build app') {
+        stage('Checkout') {
             steps {
                 gitclone(
                     branch: 'master',
                     url: 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git',
                     credentialsId: 'jenkinsGit'
                 )
+            }
+        } //stage Checkout
+         stage('maven build') {
+            steps {
+               
+                    build("package")
+             
             }
         }
     }
