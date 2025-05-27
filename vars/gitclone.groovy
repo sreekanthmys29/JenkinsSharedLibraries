@@ -1,5 +1,5 @@
 
-def call( branch ,  credentialsId,  url) {
+def call(String branch, String credentialsId, String url) {
      echo "branch -----${branch}"
      echo "credentialsId -----${credentialsId}"
      echo "url -----${url}"
