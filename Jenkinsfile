@@ -8,35 +8,25 @@ agent any
       maven 'mavenLocal'
 
   }
-
   stages{
-
         stage('checkout code'){
-     
                  steps{
-
-                        git clone 'https://github.com/devopswithcloud/spring3-mvc-maven-xml-hello-world.git'
-
-
+                     script{
+                        git 'https://github.com/devopswithcloud/spring3-mvc-maven-xml-hello-world.git'
+                     }
                  }
 
         }
       stage('maven build'){
-     
                  steps{
-
-                      build('clean')
+                      stages('Build')
                  }
-
         }
-
-
-
-
   }//stages
 
 
 
 
+}       //pipeline
 
-} //pipeline
+
