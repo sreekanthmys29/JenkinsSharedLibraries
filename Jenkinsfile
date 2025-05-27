@@ -19,7 +19,7 @@ pipeline {
          stage('maven build') {
             steps {
                 script{
-                               // instead of  build("package")   we are calling custom function buildcall  showuld define inside script
+                               //  we are calling custom function buildcall in build.groovy  we should define inside script for custom functions
                                 build.buildcall("package")
 
                 }
@@ -41,6 +41,14 @@ pipeline {
               
             }
         } //tomcat
+
+        stage('nexus deployment') {
+            steps {
+                    //calling builit in function (call) in nexus.groovy file 
+                    nexus()
+                
+            }
+        }
     }
 }
 
