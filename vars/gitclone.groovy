@@ -1,8 +1,7 @@
+def call(Map params = [:]) {
+    def branch = params.get('branch', 'master')
+    def url = params.get('url', '')
+    def credentialsId = params.get('credentialsId', '')
 
-def call(String branch, String credentialsId, String url) {
-     echo "branch -----${branch}"
-     echo "credentialsId -----${credentialsId}"
-     echo "url -----${url}"
-     echo "git clone"
-     git branch: "${branch}", credentialsId: "${credentialsId}", url: "${url}"
- }
+    git branch: branch, credentialsId: credentialsId, url: url
+}
