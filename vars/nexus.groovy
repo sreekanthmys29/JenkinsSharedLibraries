@@ -1,5 +1,5 @@
 def call() {
-    echo " Nexus Deployment Starting..."
+    echo " Install Jenkins  Plugin  Pipeline Maven Integration..."
 
     // Read and parse pom.xml
     def pom = readMavenPom file: 'pom.xml'
