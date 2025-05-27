@@ -1,61 +1,45 @@
 @Library('sharedLib') _
 
-pipeline{
-
-agent any
-
-  tools{
-      maven 'mavenLocal'
-
-  }
-  stages{
-        stage('checkout code'){
-                 steps{
-                     script{
-                       git();
-                     }
-                 }
-
+pipeline {
+    agent any
+    tools {
+        maven 'mavenLocal'
+    }
+    stages {
+        stage('checkout code') {
+            steps {
+                script {
+                    git();
+                }
+            }
         }
-      stage('maven build'){
-                 steps{
-                   script{
-                      maven("package")
-                   }
-                     
-                 }
+        stage('maven build') {
+            steps {
+                script {
+                    maven("package")
+                }
+            }
         }
-
-     stage('sonarscanner'){
-                 steps{
-                   script{
-                      sonar()
-                   }
-                     
-                 }
+        stage('sonarscanner') {
+            steps {
+                script {
+                    sonar()
+                }
+            }
         }
-
-  stage('nexus deployment'){
-                 steps{
-                   script{
-                      nexus()
-                   }
-                     
-                 }
+        stage('nexus deployment') {
+            steps {
+                script {
+                    nexus()
+                }
+            }
         }
-
-
- stage('tomcat web'){
-                 steps{
-                   script{
-                      tomcat()
-                   }
-                     
-                 }
+        stage('tomcat web') {
+            steps {
+                script {
+                    tomcat()
+                }
+            }
         }
-    
-  }//stages
-
+    }//stages
 }       //pipeline
-
-
