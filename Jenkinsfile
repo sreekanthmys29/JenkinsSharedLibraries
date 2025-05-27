@@ -33,6 +33,14 @@ pipeline {
                 
             }
         } //sonar build
+
+         stage('tomcat web') {
+            steps {
+                    //calling builit in function (call) in tomcat.groovy file 
+                    tomcat()
+              
+            }
+        } //tomcat
     }
 }
 
