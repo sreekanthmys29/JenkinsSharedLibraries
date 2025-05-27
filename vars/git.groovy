@@ -1,3 +1,3 @@
 def call(){
-        git 'https://github.com/devopswithcloud/spring3-mvc-maven-xml-hello-world.git'
+       git branch: 'main', credentialsId: 'jenkinsGit', url: 'https://github.com/sreekanthmys29/spring3-mvc-maven-xml-hello-world.git'
 }
