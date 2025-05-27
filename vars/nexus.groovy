@@ -4,7 +4,7 @@ def call() {
     // Read and parse pom.xml
     def pom = readMavenPom file: 'pom.xml'
 
-    echo "✅ Parsed POM:"
+    echo "   POM: {pom} "
     echo " - GroupId: ${pom.groupId}"
     echo " - ArtifactId: ${pom.artifactId}"
     echo " - Version: ${pom.version}"
