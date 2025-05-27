@@ -1,8 +1,7 @@
 def call(){
 
      echo "Nexus deployment"
-
-     def pom = readMavenPOM( file : 'pom.xm')
-     
+       def pom = readMavenPom file: 'pom.xml'
+       echo "Parsed POM - GroupId: ${pom.groupId}, ArtifactId: ${pom.artifactId}, Version: ${pom.version}"
 
 }
