@@ -1,4 +1,4 @@
-def call(String mavenGoal){
+def buildcall(String mavenGoal){
   
   if ("${mavenGoal}" == "clean")
      {
